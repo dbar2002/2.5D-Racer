@@ -56,7 +56,7 @@ public class FormulaOne {
             player = ImageIO.read(new File("src/images/steeringwheel.png"));
             cockpit = ImageIO.read(new File("src/images/cockpit.png"));
             track = ImageIO.read(new File("src/images/track.png"));
-            perspectiveTrack = convertToARGB(ImageIO.read(new File("src/images/track.png")));
+            perspectiveTrack = convertToARGB(ImageIO.read(new File("src/images/perspectivetrack.png")));
         } catch (IOException ioe) {
 
         }
