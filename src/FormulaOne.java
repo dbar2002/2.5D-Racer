@@ -52,11 +52,11 @@ public class FormulaOne {
 
         try {
             //TODO: place the image name into this line!!!
-           /* background = ImageIO.read(new File("src/CityScape.png"));
-            player = ImageIO.read(new File("src/Wheel.png"));
-            cockpit = ImageIO.read(new File("src/Cockpit.png"));
-            track = ImageIO.read(new File("src/Track.png"));
-            perspectiveTrack = convertToARGB(ImageIO.read(new File("src/Track.png")));*/
+           background = ImageIO.read(new File("src/images/background.png"));
+            player = ImageIO.read(new File("src/images/steeringwheel.png"));
+            cockpit = ImageIO.read(new File("src/images/cockpit.png"));
+            track = ImageIO.read(new File("src/images/track.png"));
+            perspectiveTrack = convertToARGB(ImageIO.read(new File("src/images/track.png")));
         } catch (IOException ioe) {
 
         }
