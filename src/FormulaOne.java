@@ -52,11 +52,11 @@ public class FormulaOne {
 
         try {
             //TODO: place the image name into this line!!!
-            background = ImageIO.read(new File("src/CityScape.png"));
+           /* background = ImageIO.read(new File("src/CityScape.png"));
             player = ImageIO.read(new File("src/Wheel.png"));
             cockpit = ImageIO.read(new File("src/Cockpit.png"));
             track = ImageIO.read(new File("src/Track.png"));
-            perspectiveTrack = convertToARGB(ImageIO.read(new File("src/Track.png")));
+            perspectiveTrack = convertToARGB(ImageIO.read(new File("src/Track.png")));*/
         } catch (IOException ioe) {
 
         }
@@ -194,7 +194,6 @@ public class FormulaOne {
         AffineTransformOp atop = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
         return atop;
     }
-    // 165
 
     private static AffineTransformOp spinImageObject(ImageObject obj) {
         AffineTransform at = AffineTransform.getRotateInstance(-obj.getInternalAngle(), obj.getWidth() / 2.0, obj.getHeight() / 2.0);
@@ -215,7 +214,7 @@ public class FormulaOne {
 
     private static Vector<Vector<Vector<Integer>>> perspectiveFromRectangle(Vector<Vector<Vector<Integer>>> inputGrid, int base) {
         Vector<Vector<Vector<Integer>>> ret = new Vector<Vector<Vector<Integer>>>();
-        // allocate space for ret
+
         for (int i = 0; i < inputGrid.size(); i++) {
             Vector<Vector<Integer>> tempRow = new Vector<Vector<Integer>>();
             for (int j = 0; j < inputGrid.elementAt(i).size(); j++) {
@@ -228,7 +227,6 @@ public class FormulaOne {
             }
             ret.addElement(tempRow);
         }
-        // 166
         // collapse rows from inputGrid into ret
         for (int i = 0; i < inputGrid.size(); i++) {
             for (int j = 0; j < inputGrid.elementAt(i).size(); j++) {
@@ -265,7 +263,7 @@ public class FormulaOne {
             }
             ret.addElement(tempRow);
         }
-        // 167
+
         for (int i = 0; i < inputImg.size(); i++) {
             for (int j = 0; j < inputImg.elementAt(i).size(); j++) {
                 int newj = (int) (0.5 + xpos + ((double) j - xpos) * Math.cos(angle) - ((double) i - ypos) * Math.sin(angle));
@@ -298,7 +296,6 @@ public class FormulaOne {
         return ret;
     }
 
-    // 168
     private static Vector<Vector<Vector<Integer>>> duplicate3x3(Vector<Vector<Vector<Integer>>> inputImg) {
         Vector<Vector<Vector<Integer>>> ret = new Vector<>();
         for (int i = 0; i < inputImg.size() * 3; i++) {
@@ -332,9 +329,9 @@ public class FormulaOne {
     private static void trackDraw() {
         // use camera's position, p1's rotation, and trapezoid mapper.
 
-        int rectWidth = 500; //500
-        int rectHeight = 175; //200
-        int base = 150; //250
+        int rectWidth = 500;
+        int rectHeight = 175;
+        int base = 150;
         int xoffset = 0;
         int yoffset = 232;
         int scaledown = 5;
@@ -401,7 +398,7 @@ public class FormulaOne {
                 while (256 <= blue) {
                     blue = blue - 256;
                 }
-                // page 171
+
                 Color myColor = new Color(red, green, blue);
                 int rgb = myColor.getRGB();
                 perspectiveTrack.setRGB(j, i, rgb);
@@ -438,7 +435,7 @@ public class FormulaOne {
                 leftPressed = true;
             }
             if (action.equals("RIGHT")) {
-                //page 172
+
                 rightPressed = true;
             }
         }
@@ -476,7 +473,7 @@ public class FormulaOne {
     private static class QuitGame implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             endgame = true;
-            // page 173
+
         }
     }
 
@@ -489,8 +486,8 @@ public class FormulaOne {
             rightPressed = false;
             p1 = new ImageObject(p1originalX, p1originalY, p1width, p1height, 0.0);
             p1velocity = 0.0;
-            camerax = 0; // 470;
-            cameray = 0; //425;
+            camerax = 0;
+            cameray = 0;
             try {
                 Thread.sleep(50);
             } catch (InterruptedException ie) {
@@ -515,7 +512,6 @@ public class FormulaOne {
         public ImageObject(double xinput, double yinput, double xwidthinput,
                            double yheightinput, double angleinput) {
             x = xinput;
-            // page 174
             y = yinput;
             xwidth = xwidthinput;
             yheight = yheightinput;
@@ -556,7 +552,6 @@ public class FormulaOne {
             internalangle = internalangleinput;
         }
 
-        // page 175
         public Vector<Double> getCoords() {
             return coords;
         }
@@ -569,9 +564,7 @@ public class FormulaOne {
 
         public void generateTriangles() {
             triangles = new Vector<Double>();
-            // format: (0,1), (2,3), (4,5) is the (x,y) coords of a triangle
 
-            // get center point of all coordinates.
             comX = getComX();
             comY = getComY();
 
