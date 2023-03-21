@@ -29,7 +29,7 @@ public class FormulaOne {
     }
 
     public static void setup() {
-        appFrame = new JFrame("F1 Racing");
+        appFrame = new JFrame("Formula One Racing");
         XOFFSET = 0;
         YOFFSET = 40;
         WINWIDTH = 500;
@@ -51,12 +51,12 @@ public class FormulaOne {
         trackMatrix = new Vector<Vector<Vector<Integer>>>();
 
         try {
-            //TODO: place the image name into this line!!!
+            //place the image name into this line!!!
            background = ImageIO.read(new File("src/images/background.png"));
             player = ImageIO.read(new File("src/images/steeringwheel.png"));
             cockpit = ImageIO.read(new File("src/images/cockpit.png"));
             track = ImageIO.read(new File("src/images/track.png"));
-            perspectiveTrack = convertToARGB(ImageIO.read(new File("src/images/perspectivetrack.png")));
+            perspectiveTrack = convertToARGB(ImageIO.read(new File("src/images/track.png")));
         } catch (IOException ioe) {
 
         }
