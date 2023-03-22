@@ -43,11 +43,11 @@ public class FormulaOne {
         sevenquartersPi = 1.75 * pi;
         twoPi = 2.0 * pi;
         endgame = false;
-        p1width = 228;
-        p1height = 228;
+        p1width = 160;
+        p1height = 258;
         cockpitShift = 350;
         p1originalX = (double) XOFFSET + ((double) WINWIDTH / 2.0) - (p1width / 2.0);
-        p1originalY = (double) YOFFSET + (double) cockpitShift;
+        p1originalY = (double) YOFFSET + (double) cockpitShift - 50;
         trackMatrix = new Vector<Vector<Vector<Integer>>>();
 
         try {
@@ -100,20 +100,20 @@ public class FormulaOne {
 
                 }
 
-                if (upPressed) {
+                if (upPressed == true) {
                     p1velocity = p1velocity + velocitystep;
                 }
-                if (downPressed) {
+                if (downPressed == true) {
                     p1velocity = p1velocity - velocitystep;
                 }
-                if (leftPressed) {
+                if (leftPressed == true) {
                     if (p1velocity < 0) {
                         p1.rotate(-rotatestep);
                     } else {
                         p1.rotate(rotatestep);
                     }
                 }
-                if (rightPressed) {
+                if (rightPressed == true) {
                     if (p1velocity < 0) {
                         p1.rotate(rotatestep);
                     } else {
@@ -206,8 +206,9 @@ public class FormulaOne {
         Graphics2D g2D = (Graphics2D) g;
 
         int xshift = XOFFSET + (int) ((p1.getAngle() / twoPi) * new Double(background.getWidth()) + 0.5);
-        g2D.drawImage(background, xshift, YOFFSET - 270, null);
-        //g2D.drawImage(background, xshift - background.getWidth(), YOFFSET, null);
+        g2D.drawImage(background, xshift, YOFFSET, null);
+        g2D.drawImage(background, xshift - background.getWidth(), YOFFSET, null);
+
         g2D.drawImage(cockpit, XOFFSET, cockpitShift, null);
         g2D.drawImage(rotateImageObject(p1).filter(player, null), (int) (p1.getX() + 0.5), (int) (p1.getY() + 0.5), null);
     }
