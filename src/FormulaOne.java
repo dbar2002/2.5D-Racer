@@ -1,7 +1,7 @@
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.util.Vector;
-//Nadia was here
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -51,7 +51,7 @@ public class FormulaOne {
         trackMatrix = new Vector<Vector<Vector<Integer>>>();
 
         try {
-            //place the image name into this line!!!
+            //place the image name into this line
            background = ImageIO.read(new File("src/images/background.png"));
             player = ImageIO.read(new File("src/images/steeringwheel.png"));
             cockpit = ImageIO.read(new File("src/images/cockpit.png"));
